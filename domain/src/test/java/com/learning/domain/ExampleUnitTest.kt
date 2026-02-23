@@ -1,8 +1,5 @@
-package com.learning.data
+package com.learning.domain
 
-import com.learning.data.network.Client
-import com.learning.data.network.NetworkRepository
-import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -15,8 +12,6 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        runBlocking<Unit> {
-            println(Client.createRequest().getCheck())
-        }
+        assertEquals(4, 2 + 2)
     }
 }

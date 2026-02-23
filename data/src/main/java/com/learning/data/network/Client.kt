@@ -11,18 +11,18 @@ import javax.inject.Singleton
 @Module
 object Client {
 
-    private val baseUrl = "https://api.getpostman.com/"
+    private const val BaseUrl = "http://localhost:3000/"
     private val client = OkHttpClient.Builder()
         .build()
 
     private val retroClient = Retrofit.Builder()
         .client(client)
-        .baseUrl(baseUrl)
+        .baseUrl(BaseUrl)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     @Provides
     @Singleton
-    fun createRequest() = retroClient.create<Request>(Request::class.java)
+    fun createRequest(): Request = retroClient.create<Request>(Request::class.java)
 
 }
