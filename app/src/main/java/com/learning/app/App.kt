@@ -7,13 +7,11 @@ import com.learning.app.di.DaggerAppComponent
 
 class App : Application() {
 
-    lateinit var daggerAppComponent : AppComponent
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
-
-        daggerAppComponent = DaggerAppComponent.factory().create(this)
-
         super.onCreate()
+        appComponent = DaggerAppComponent.factory().create(this)
     }
 
 }
@@ -22,5 +20,5 @@ class App : Application() {
 val Context.appComponent : AppComponent
     get() = when(this) {
         is App -> this.appComponent
-        else -> this.applicationContext.appComponent
+        else -> (this.applicationContext as App).appComponent
 }

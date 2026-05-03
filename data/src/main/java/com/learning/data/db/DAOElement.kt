@@ -4,15 +4,16 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface DAOElement {
 
     @Insert
-    fun insertListToDb(list : List<Element>)
+    suspend fun insertListToDb(list : List<Element>)
 
     @Query("SELECT * FROM ELEMENT")
-    fun getListFromDb() : List<Element>
+    fun getListFromDb() : Flow<List<Element>>
 
 
 }

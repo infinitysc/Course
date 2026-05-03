@@ -7,7 +7,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.learning.navigation.NavigationObject
 
@@ -25,13 +27,19 @@ fun NavBar(navController : NavController) {
             NavigationBarItem(
                 selected = isSelected,
                 onClick = {
-                   if(currentRoute != item.route){
-                       navController.navigate(item.route)
-                   }
+                    if (currentRoute != item.route) {
+                        navController.navigate(item.route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
                 },
-                icon = { Icon(imageVector = item.icon, contentDescription = item.title) },
+                icon = { Icon(imageVector = item.icon, contentDescription = stringResource(id = item.titleRes)) },
                 label = {
-                    Text(text = item.title)
+                    Text(text = stringResource(id = item.titleRes))
                 }
             )
         }

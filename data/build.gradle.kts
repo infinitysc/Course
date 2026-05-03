@@ -47,7 +47,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.kotlinx.coroutines)
     implementation(libs.dagger)
-
+    implementation(libs.okhttp.logging.interceptor)
     implementation(libs.room.ktx)
 
     runtimeOnly(libs.room.runtime)

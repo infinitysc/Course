@@ -8,20 +8,19 @@ import androidx.compose.material.icons.filled.Home
 object NavigationObject {
     val navigationItems = listOf(
         NavigationItem(
-            title = "mainScreen",
+            titleRes = R.string.nav_main,
             icon = Icons.Default.Home,
             route = Screen.MainScreen.route
         ),
         NavigationItem(
-            title = "favoritesScreen",
+            titleRes = R.string.nav_favorites,
             icon = Icons.Default.Favorite,
             route = Screen.FavoriteScreen.route
         ),
         NavigationItem(
-            title = "profileScreen",
+            titleRes = R.string.nav_profile,
             icon = Icons.Default.AccountBox,
             route = Screen.ProfileScreen.route
         )
     )
 }
-

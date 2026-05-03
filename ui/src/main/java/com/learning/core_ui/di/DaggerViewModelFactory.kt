@@ -1,6 +1,6 @@
 package com.learning.core_ui.di
 
-/*import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 import javax.inject.Provider
@@ -14,4 +14,4 @@ class DaggerViewModelFactory @Inject constructor(private val creators : Map<Clas
         return creator.get() as T
     }
 
-}*/
+}

@@ -8,7 +8,7 @@ java {
 }
 
 dependencies {
-
+    implementation(libs.dagger)
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlinx.coroutines)
     testImplementation(libs.junit)

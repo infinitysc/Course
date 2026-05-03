@@ -1,4 +1,4 @@
-package com.learning.core_ui
+package com.learning.core_ui.profile
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

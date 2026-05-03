@@ -16,10 +16,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -77,7 +74,11 @@ fun ProfileList(title : String = "JAVA разработчик с нуля",
                 completed : List<String> = listOf("20","25")
 ) {
 
-    val result = remember { (completed[0].toInt() / completed[1].toFloat()) }
+    val result = remember(completed) {
+        val done = completed.getOrNull(0)?.toFloatOrNull() ?: 0f
+        val total = completed.getOrNull(1)?.toFloatOrNull() ?: 1f
+        if (total == 0f) 0f else done / total
+    }
 
     Box(Modifier
         .fillMaxWidth()
@@ -92,11 +93,11 @@ fun ProfileList(title : String = "JAVA разработчик с нуля",
                 .padding(bottom = 10.dp,start = 10.dp,end = 10.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Text("${(result * 100).toInt()} %")
-                Text("${completed[0]}/${completed[1]} уроков")
+                Text("${completed.getOrNull(0) ?: "0"}/${completed.getOrNull(1) ?: "0"} уроков")
             }
-            var progress by remember {mutableStateOf<Float>(result)}
+            
             LinearProgressIndicator(
-                progress = { progress },
+                progress = { result },
                 modifier = Modifier.fillMaxWidth()
                     .padding(start = 10.dp,end = 10.dp,
                         bottom = 10.dp)
@@ -108,4 +109,3 @@ fun ProfileList(title : String = "JAVA разработчик с нуля",
         }
     }
 }
-

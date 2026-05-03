@@ -1,8 +1,9 @@
 package com.learning.data.network
 
 import com.google.gson.annotations.SerializedName
+import com.learning.domain.usecases.MockData
 
-data class MockData (
+data class MockDataDTO (
     @SerializedName("id")
     val mockId : Int,
     @SerializedName("title")
@@ -19,6 +20,18 @@ data class MockData (
     val mockHasLike : Boolean,
     @SerializedName("publishDate")
     val mockPublishDate : String,
-    /*@SerializedName("id")
-    val mockFullName : String*/
-)
+
+){
+    fun toMockDataDomain() : MockData{
+        return MockData(
+            mockId = mockId,
+            mockTitle = mockTitle,
+            mockText = mockText,
+            mockPrice = mockPrice,
+            mockRate = mockRate,
+            mockStartDate = mockStartDate,
+            mockHasLike = mockHasLike,
+            mockPublishDate = mockPublishDate,
+            )
+    }
+}
