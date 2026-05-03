@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.learning.data"
+    namespace = "com.learning.navigation"
     compileSdk {
         version = release(36)
     }
@@ -33,32 +33,25 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
-    implementation(libs.kotlin.stdlib)
+
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(project(":domain"))
-    implementation(libs.retrofit.gson.converter)
-    implementation(libs.retrofit)
-    implementation(libs.okhttp)
-    implementation(libs.gson)
-    implementation(libs.kotlinx.coroutines)
-    implementation(libs.dagger)
-
-    implementation(libs.room.ktx)
-
-    runtimeOnly(libs.room.runtime)
-
-    ksp(libs.dagger.compiler)
-    ksp(libs.room.compiler)
-
-
-
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.ui)
 
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

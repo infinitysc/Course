@@ -12,6 +12,8 @@ appcompat = "1.7.1"
 room = "2.7.2"
 dagger = "2.57.2"
 material = "1.13.0"
+ui = "1.10.4"
+material3 = "1.4.0"
 
 [libraries]
 kotlin-stdlib = {group = "org.jetbrains.kotlin", name = "kotlin-stdlib",version = "2.1.21"}
@@ -44,6 +46,10 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version = "2.9
 retrofit-gson-converter = {group = "com.squareup.retrofit2", name = "converter-gson",version = "2.9.0"}
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version = "4.12.0"}
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -51,4 +57,3 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-ksp = {id = "com.google.devtools.ksp",version = "2.1.10-1.0.30"}
 android-library = { id = "com.android.library", version.ref = "agp" }
-

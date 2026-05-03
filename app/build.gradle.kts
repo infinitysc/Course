@@ -6,13 +6,13 @@ plugins {
 }
 
 android {
-    namespace = "com.learning.course"
+    namespace = "com.learning.app"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.learning.course"
+        applicationId = "com.learning.app"
         minSdk = 35
         targetSdk = 36
         versionCode = 1
@@ -37,33 +37,27 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures {
-        compose = true
-    }
 }
 
 dependencies {
+    implementation(project(":ui"))
+    implementation(project(":navigation"))
     implementation(project(":data"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.material)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.navigation)
+    implementation(libs.androidx.material3)
+
+    testImplementation(libs.junit)
 
     ksp(libs.dagger.compiler)
     implementation(libs.dagger)
 
-    testImplementation(libs.junit)
-
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
 }

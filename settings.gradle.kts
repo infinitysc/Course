@@ -23,3 +23,5 @@ rootProject.name = "Course"
 include(":app")
 include(":data")
 include(":domain")
+include(":navigation")
+include(":ui")

@@ -1,7 +1,3 @@
 <resources>
     <string name = "app_name">Course</string>
-    <string name = "favorites">Избранное</string>
-    <string name = "login">Логин</string>
-    <string name = "registration">Регистрация</string>
-    <string name = "password">Пароль</string>
 </resources>
