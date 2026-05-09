@@ -1,16 +1,10 @@
 package com.learning.data.db
 
-import android.content.Context
-import androidx.room.Room
-import dagger.Module
-import javax.inject.Inject
+import androidx.room.Database
+import androidx.room.RoomDatabase
 
-@Module
-class Database @Inject constructor(context : Context) {
+@Database(entities = [Element::class], version = 1)
+abstract class AppDatabase  : RoomDatabase() {
+    abstract fun mockDao() : DAOElement
 
-
-    companion object {
-        private const val tag = "CREATE"
-
-    }
 }

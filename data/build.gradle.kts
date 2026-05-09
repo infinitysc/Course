@@ -40,14 +40,14 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-
+    implementation(project(":domain"))
     implementation(libs.retrofit.gson.converter)
     implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.gson)
     implementation(libs.kotlinx.coroutines)
     implementation(libs.dagger)
-
+    implementation(libs.okhttp.logging.interceptor)
     implementation(libs.room.ktx)
 
     runtimeOnly(libs.room.runtime)

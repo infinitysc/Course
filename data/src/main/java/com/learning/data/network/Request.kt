@@ -8,8 +8,8 @@ interface Request {
 
     @TestOnly
     @GET("obj")
-    suspend fun getCheck() : List<MockData>
+    suspend fun getCheck() : List<MockDataDTO>
 
     @GET("obj")
-    suspend fun getListData() : List<MockData>
+    suspend fun getListData() : List<MockDataDTO>
 }
